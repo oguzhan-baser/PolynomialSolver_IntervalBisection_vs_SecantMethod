@@ -10,3 +10,12 @@ Through this simple project, it is aimed to show differences between Interval Bi
 The Interval Bisection approach is briefly derived from the [Intermediate Value Theorem](https://en.wikipedia.org/wiki/Intermediate_value_theorem). The theorem simply implies that there exists at least one root of ![equation](https://render.githubusercontent.com/render/math?math=p(x)) in the interval ![equation](https://render.githubusercontent.com/render/math?math=[a,b]) if ![equation](https://render.githubusercontent.com/render/math?math=sign[p(a)]{\neq}sign[p(b)]). 
 
 There is a need for specifying the two variables, a and b, before applying *Interval Bisection*, and it is assumed that the condition ![equation](https://render.githubusercontent.com/render/math?math=sign[p(a)]{\neq}sign[p(b)]) holds. Next step is calculating c which is the average of a and b. Then ![equation](https://render.githubusercontent.com/render/math?math=f(c)) is calculated as shown in the figure. The value of c is assigned to the variable whose function output has the same sign as f(c). Then the average of a and b is calculated. This iteration keeps going until the difference between values of the variables a and b becomes less than a certain threshold which will be called tolerance for our case. The tolerance value is a hyperparameter defined by the designer in order to reach the targeted precision of the output.
+
+![](images/interval_bisection.jpg)
+
+**SECANT METHOD:**
+
+*Secant Method* is derived from *Newton's Method*. Since calculating the derivative in *Newton’s Method* is computationally costly, the derivative is approximated by the [finite-difference](https://en.wikipedia.org/wiki/Finite_difference) here.
+
+Two initial guesses (a and b) are inputted to polynomial function, and outputs are got. Then a straight line is drawn between these outputs. The point where this straight line intersects with the x-axis is found. This point can be calculated directly via ![formula](https://render.githubusercontent.com/render/math?math=x_{t%2B1}=x_t-p\left(x_t\right)\frac{x_t-x_{t-1}}{p\left(x_t\right)-p\left(x_{t-1}\right)}) . Then, this new point value is replaced with one of the initial guesses. This iteration continues to replace old points with the calculated ones until difference between the value of these points is less than a certain threshold which is specified by the designer. One step of the iteration is shown in the figure below.
+![](images/secant.jpg)
